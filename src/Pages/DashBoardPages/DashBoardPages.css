@@ -1,0 +1,19 @@
+.dashboards-container {
+    width: 90%;
+    border: 1px solid gainsboro;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+
+.dashboard-left {
+    /* border: 1px solid green; */
+    margin-right: 20px;
+}
+
+.dashboard-right {
+    /* border: 1px solid brown; */
+    margin: 0 auto;
+}

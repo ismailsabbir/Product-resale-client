@@ -1,7 +1,7 @@
 import React from "react";
-import "./DashBoardPages.css";
+import "./AdminDashborde.css";
 import DashboardLeft from "../../Component/DashboardLeft/DashboardLeft";
-const DashBoardPages = () => {
+const AdminDashborde = () => {
   return (
     <div className="dashboards-container">
       <div className="row">
@@ -9,11 +9,11 @@ const DashBoardPages = () => {
           <DashboardLeft></DashboardLeft>
         </div>
         <div className="dashboard-right col col-6 col-sm-3 col-md-3 col-lg-8 ">
-          <h5>Dashboard</h5>
+          <h5>Dashboard Admin</h5>
         </div>
       </div>
     </div>
   );
 };
 
-export default DashBoardPages;
+export default AdminDashborde;

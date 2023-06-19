@@ -12,6 +12,10 @@ import LoginPages from "./Pages/LoginPages/LoginPages";
 import SpecificProductPages from "./Pages/SpecificProductPages/SpecificProductPages";
 import PostAddPages from "./Pages/PostAddPages/PostAddPages";
 import DashBoardPages from "./Pages/DashBoardPages/DashBoardPages";
+import DashbordLayout from "./Layoutes/DashbordLayout";
+import AdminDashborde from "./Pages/AdminDashborde/AdminDashborde";
+import SeallerDashborde from "./Pages/SeallerDashborde/SeallerDashborde";
+import BuyersDashborde from "./Pages/BuyersDashborde/BuyersDashborde";
 
 function App() {
   const router = createBrowserRouter([
@@ -77,13 +81,30 @@ function App() {
           element: <LoginPages></LoginPages>,
         },
         {
-          path: "/dashboard",
-          element: <DashBoardPages></DashBoardPages>,
-        },
-
-        {
           path: "*",
           element: <Errorpages></Errorpages>,
+        },
+        {
+          path: "/dashboard",
+          element: <DashbordLayout></DashbordLayout>,
+          children: [
+            {
+              path: "/dashboard",
+              element: <DashBoardPages></DashBoardPages>,
+            },
+            {
+              path: "/dashboard/admin",
+              element: <AdminDashborde></AdminDashborde>,
+            },
+            {
+              path: "/dashboard/sealler",
+              element: <SeallerDashborde></SeallerDashborde>,
+            },
+            {
+              path: "/dashboard/buyers",
+              element: <BuyersDashborde></BuyersDashborde>,
+            },
+          ],
         },
       ],
     },
