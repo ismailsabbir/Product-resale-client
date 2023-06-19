@@ -1,0 +1,64 @@
+.review-add-container {
+    width: 88%;
+    margin: 0 auto;
+    /* border: 1px solid brown; */
+
+}
+
+.review-top-let {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: gray;
+}
+
+.add-review-top-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.review {
+    border: 1px solid gainsboro;
+    width: 60%;
+    height: 200px;
+}
+
+.name-email {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.name {
+    width: 28%;
+    border: 1px solid gainsboro;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.email {
+    width: 28%;
+    border: 1px solid gainsboro;
+    padding: 10px;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.condition-text {
+    text-align: center;
+}
+
+.addreview-btn {
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    margin-top: 30px;
+}

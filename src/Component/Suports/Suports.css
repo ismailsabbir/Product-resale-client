@@ -1,0 +1,12 @@
+.support1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 10px;
+}
+
+.support1 h4 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}

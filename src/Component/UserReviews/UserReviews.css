@@ -1,0 +1,42 @@
+.review-container {
+    width: 88%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 8px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+.user-imge-div {
+    width: 90px;
+    height: 90px;
+    /* border: 1px solid black; */
+    border-radius: 100%;
+    padding: 4px;
+    background-color: gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.user-imge {
+    width: 90%;
+    height: 90%;
+}
+
+.review-star-con {
+    display: flex;
+}
+
+.review-text {
+    color: gray;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.review-star {
+    font-size: 1.6rem;
+}

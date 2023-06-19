@@ -1,0 +1,98 @@
+.navbar-container {
+    border-bottom: 1px solid gainsboro;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-items {
+    margin: 0 auto;
+}
+
+.oldcolor {
+    background-color: white;
+}
+
+.new-color {
+    background-color: rgb(247, 247, 252);
+}
+
+#nav-item {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 15px;
+    padding: 6px 8px;
+
+}
+
+#nav-item:hover {
+    border: 1px solid rgb(238, 236, 236);
+    background-color: rgb(235, 233, 233);
+    border-radius: 6px;
+}
+
+#nav-items {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 15px;
+    padding: 6px 8px;
+    display: none;
+
+}
+
+#nav-items:hover {
+    border: 1px solid rgb(238, 236, 236);
+    background-color: rgb(235, 233, 233);
+    border-radius: 6px;
+}
+
+.new-item-color {
+    padding: 6px 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 15px;
+    border: 1px solid rgb(238, 236, 236);
+    background-color: rgb(235, 233, 233);
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+#res-btn {
+    color: black;
+}
+
+.nav-last {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user {
+    color: black;
+}
+
+.searchicon {
+    display: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconall {
+    margin-left: 12px;
+    font-size: 1.3rem;
+}
+
+#searchicon {
+    margin-left: 12px;
+    font-size: 1.3rem;
+}

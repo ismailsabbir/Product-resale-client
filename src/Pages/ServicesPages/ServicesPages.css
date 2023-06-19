@@ -1,0 +1,124 @@
+.servicespages-container {
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.servicespage-product {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid brown; */
+    padding-top: 100px;
+}
+
+.pagerouter {
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.product-category-title {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.categorydiv {
+    width: 100%;
+    /* border: 1px solid brown; */
+}
+
+.category {
+    text-decoration: none;
+    color: rgb(66, 65, 65);
+    margin-bottom: 10px;
+}
+
+.category:hover {
+    border-bottom: 1px solid gainsboro;
+}
+
+.servicespagesleft {
+    /* border: 1px solid brown; */
+    margin-right: 15px;
+    padding-top: 50px;
+}
+
+.categorydiv {
+    margin-top: 10px;
+}
+
+.price-range-con {
+    margin-top: 40px;
+}
+
+.price-range-con h5 {
+    margin-bottom: 20px;
+}
+
+.multi-range-slider {
+    display: flex;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-shadow: 1px 1px 4px black;
+    flex-direction: column;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.multi-range-slider .bar-inner-left {
+    width: 50%;
+    color: black;
+    background-color: black;
+}
+
+.multi-range-slider .bar-inner-right {
+    width: 50%;
+    background-color: black;
+}
+
+.multi-range-slider .bar {
+    display: flex;
+    height: 2px;
+    color: gray;
+}
+
+.multi-range-slider .thumb {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.color-con {
+    margin-top: 80px;
+}
+
+.color-form {
+    margin-top: 10px;
+}
+
+.stock {
+    margin-top: 40px;
+}
+
+.stock-form {
+    margin-top: 10px;
+}
+
+.specific-p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(56, 56, 56);
+}
+
+.droupdrown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}

@@ -1,0 +1,107 @@
+.postadd-container {
+    width: 75%;
+    border: 1px solid gainsboro;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-product-head {
+    text-align: center;
+    margin-bottom: 20px;
+    color: aqua;
+
+}
+
+#add-category {
+    margin-bottom: 30px;
+}
+
+.all-input-con {
+
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 80%;
+    padding: 20px;
+    padding-right: 0px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.first-input {
+    margin: 20px;
+}
+
+.fileinput {
+    display: none;
+}
+
+#file {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    padding-bottom: 0;
+
+
+}
+
+.image-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.image-input-con {
+    display: flex;
+}
+
+.post-add-con {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.postadd-btn {
+    background-color: rgb(19, 48, 19);
+    padding: 8px 25px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+}
+
+.input-level {
+    color: rgb(57, 57, 57);
+    font-weight: 500;
+}
+
+.add-poto-t {
+    font-size: 10px;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.purchase-date {
+    display: flex;
+    border: 1px solid brown;
+}
+
+#purchase-date {
+    border: 1px solid gainsboro;
+    width: 100%;
+    border-radius: 8px;
+
+}
+
+.purchase-date-input {
+    border: 1px solid gainsboro;
+    border: 8px;
+    padding: 8px;
+}

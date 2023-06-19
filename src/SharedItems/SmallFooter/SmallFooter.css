@@ -1,0 +1,19 @@
+.small-footer-con {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+}
+
+.small-footer-con img {
+    height: 60px;
+    /* width: 100px; */
+    margin-left: 40px;
+    border-radius: 50%;
+}
+
+.small-footer-con p {
+    margin-right: 40px;
+}

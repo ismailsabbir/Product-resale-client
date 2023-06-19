@@ -1,0 +1,116 @@
+.homecategory-con {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid gainsboro
+}
+
+.homecategory-top {
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+.homecategory-top h3 {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+.homecategory-top p {
+    color: gray;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.homecategory-product {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.homecategory-product:hover {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.2s;
+}
+
+.homecategory-product img {
+    width: 60px;
+    height: 60px;
+}
+
+.homecategory-text {
+    margin-left: 10px;
+}
+
+.homecategory-text h6 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.homecategory-text p {
+    margin-top: 4px;
+    color: gray;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.earning-money-con {
+    /* background-image: url(../../Images//background.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: rgb(203, 239, 251);
+    padding: 15px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.earning-money-text {
+    text-align: center;
+}
+
+.earning-money-text p {
+    color: rgb(67, 66, 66);
+    margin-bottom: 20px;
+    /* margin-top: 20px; */
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.earning-money-con img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.addpost-btn {
+    text-decoration: none;
+    color: white;
+    /* border: 1px solid gainsboro; */
+    background-color: orange;
+    margin-top: 20px;
+    /* border-radius: 6px; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.addpost-btn:hover {
+    padding: 11px;
+    border-radius: 8px;
+}

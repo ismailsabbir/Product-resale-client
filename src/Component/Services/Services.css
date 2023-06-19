@@ -1,0 +1,27 @@
+.product-card {
+    /* border: 1px solid gainsboro; */
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    padding: 15px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 400px;
+}
+
+.service-name {
+    color: rgb(54, 53, 53);
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.service-price {
+    color: gray;
+}
+
+.product-card:hover {
+    /* transition: 1s linear 0.2s; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}

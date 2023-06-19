@@ -1,0 +1,26 @@
+.services-banner-con {
+    width: 100%;
+    height: 400px;
+    border: 1px solid gainsboro;
+    display: flex;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.services-banner-con img:hover {
+    opacity: 0.8;
+}
+
+.servicebanner-text {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    color: white;
+}
+
+.servicebanner-text h1 {
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px gray;
+    /* text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2),
+        1px 1px 1px rgba(0, 0, 0, 0.6); */
+}
