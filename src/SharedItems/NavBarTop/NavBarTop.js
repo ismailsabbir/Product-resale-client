@@ -40,7 +40,7 @@ const NavBarTop = () => {
   };
   const handlesearch = (event) => {
     event.preventDefault();
-    const searchvalue = event.target.searchvalue.value;
+    // const searchvalue = event.target.searchvalue.value;
   };
   const changecolor = () => {
     if (window.scrollY >= 80) {
@@ -134,6 +134,15 @@ const NavBarTop = () => {
                   >
                     Dashboards
                   </NavLink>
+                  {/* <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "new-item-color" : undefined
+                    }
+                    id="nav-item"
+                    to="/dashboard/buyers"
+                  >
+                    My Orders
+                  </NavLink> */}
                   <NavLink id="nav-item" onClick={logouthandler}>
                     LogOut
                   </NavLink>

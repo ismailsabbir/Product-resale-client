@@ -1,0 +1,61 @@
+.order-info-con {
+    border: 1px solid gainsboro;
+    padding: 20px;
+    background-color: rgb(226, 239, 251);
+    margin-bottom: 30px;
+}
+
+.order-info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-info-top p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+}
+
+.order-id {
+    color: blue;
+    margin-left: 8px;
+}
+
+.cancle-order-btn {
+    border: 1px solid rgb(175, 174, 174);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.cancle-order-btn:hover {
+    background-color: white;
+}
+
+.order-main-info-con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gainsboro;
+    background-color: white;
+    padding: 15px;
+}
+
+.order-main-img-name {
+    display: flex;
+
+}
+
+.order-main-img-name img {
+    width: 60px;
+    height: 70px;
+    margin-right: 8px;
+}
+
+.order-main-img-name p {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(3, 173, 173);
+}

@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Form } from "react-bootstrap";
 import { BsFillImageFill } from "react-icons/bs";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/UserContest";
 const PostAddPages = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const sellersName = user?.displayName;
+  const selleremail = user?.email;
   const [productcategory, setproductcategory] = useState([]);
   const [selectedcategory, setselectedcategory] = useState([]);
   const [sphoto1, setphoto1] = useState();
@@ -113,6 +119,10 @@ const PostAddPages = () => {
     const picture1 = sphoto2;
     const picture2 = sphoto3;
     const picture3 = sphoto4;
+    const sellername = event.target.sellername.value;
+    const selleremail = event.target.selleremail.value;
+    const mobileNumber = event.target.sellernumber.value;
+    const address = event.target.selleraddress.value;
     const data = {
       category_id,
       service,
@@ -130,7 +140,12 @@ const PostAddPages = () => {
       picture1,
       picture2,
       picture3,
+      sellername,
+      selleremail,
+      mobileNumber,
+      address,
     };
+    console.log(data);
     fetch(`${process.env.REACT_APP_HOST_LINK}/productadd`, {
       method: "POST",
       body: JSON.stringify(data),
@@ -408,6 +423,61 @@ const PostAddPages = () => {
               <option value="Dark Yellow">Dark Yellow</option>
             </Form.Select>
           </Form.Group>
+          <Form.Group
+            className="mb-3 col col-12 col-sm-12 col-md-4 col-lg-5 first-input"
+            controlId="exampleForm.ControlInput1"
+          >
+            <Form.Label className="input-level">Sellers Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Sellers Name"
+              name="sellername"
+              required
+              value={sellersName}
+            />
+          </Form.Group>
+          <Form.Group
+            className="mb-3 col col-12 col-sm-12 col-md-4 col-lg-5 first-input"
+            controlId="exampleForm.ControlInput1"
+          >
+            <Form.Label className="input-level">Sellers Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Sellers email"
+              name="selleremail"
+              required
+              value={selleremail}
+            />
+          </Form.Group>
+          <Form.Group
+            className="mb-3 col col-12 col-sm-12 col-md-4 col-lg-5 first-input"
+            controlId="exampleForm.ControlInput1"
+          >
+            <Form.Label className="input-level">
+              Sellers Mobile Number
+            </Form.Label>
+            <Form.Control
+              type="mobile"
+              placeholder="Mobile Number"
+              name="sellernumber"
+              required
+            />
+          </Form.Group>
+          <Form.Group
+            className="mb-3 col col-12 col-sm-12 col-md-4 col-lg-5 first-input"
+            controlId="exampleForm.ControlInput1"
+          >
+            <Form.Label className="input-level">
+              Sellers Current address
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Current Address"
+              name="selleraddress"
+              required
+            />
+          </Form.Group>
+
           <div className="post-add-con">
             <button type="submit" className="postadd-btn">
               Post Your Add

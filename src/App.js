@@ -17,11 +17,9 @@ import AdminDashborde from "./Pages/AdminDashborde/AdminDashborde";
 import SeallerDashborde from "./Pages/SeallerDashborde/SeallerDashborde";
 import BuyersDashborde from "./Pages/BuyersDashborde/BuyersDashborde";
 import PrivetRoutes from "./Routes/PrivetRoutes";
-import { render } from "@testing-library/react";
 import PaymentTypesPages from "./Pages/PaymentTypesPages/PaymentTypesPages";
 import CartCheckOut from "./Pages/CartCheckOut/CartCheckOut";
 import CartPaymentTypesPages from "./Pages/CartPaymentTypesPages/CartPaymentTypesPages";
-
 function App() {
   const router = createBrowserRouter([
     {
@@ -43,9 +41,6 @@ function App() {
         {
           path: "/services",
           element: <ServicesPages></ServicesPages>,
-          // loader: async () => {
-          //   return fetch(`${process.env.REACT_APP_HOST_LINK}/products`);
-          // },
         },
         {
           path: "/specificservice/:id",
@@ -81,13 +76,14 @@ function App() {
           path: "/checkout",
           element: <CheckOutPages></CheckOutPages>,
         },
-        { path: "/cartcheckout", element: <CartCheckOut></CartCheckOut> },
+        {
+          path: "/cartcheckout",
+          element: <CartCheckOut></CartCheckOut>,
+        },
         {
           path: "/checkout/:id/:quentity",
           element: <CheckOutPages></CheckOutPages>,
-
           loader: async ({ params }) => {
-            // console.log(params);
             return fetch(
               `${process.env.REACT_APP_HOST_LINK}/products/${params.id}`
             );
