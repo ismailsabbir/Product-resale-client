@@ -74,6 +74,10 @@
     color: brown;
 }
 
+.reset {
+    color: rgb(2, 48, 2);
+}
+
 .or-option {
     text-align: center;
     margin-top: 8px;

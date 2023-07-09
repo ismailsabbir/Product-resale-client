@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const HomeProducts = (props) => {
   const data = props.services;
   const slicedata = data.slice(0, 8);
-  console.log(data);
   return (
     <div className="homeproduct-container">
       <div className="homeproduct-top">

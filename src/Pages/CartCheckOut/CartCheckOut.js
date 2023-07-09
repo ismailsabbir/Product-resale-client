@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "./CheckOutPages.css";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import "../CheckOutPages/CheckOutPages.css";
+import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
-const CheckOutPages = () => {
+import { useEffect } from "react";
+// import Services from "./../../Component/Services/Services";
+
+const CartCheckOut = () => {
   const [firstname, setfirstname] = useState();
   const [lastname, setlastname] = useState();
   const [country, setcountry] = useState();
@@ -11,14 +14,31 @@ const CheckOutPages = () => {
   const [email, setemail] = useState();
   const [mobile, setmobile] = useState();
   const [message, setmesssage] = useState();
-  const data = useLoaderData();
-  const { quentity } = useParams();
-  const service = data?.service;
-  const balance = data?.balance;
-  const picture = data?.picture;
-  const _id = data?._id;
-  const productinfo = [{ _id, service, quentity, picture, balance }];
-  const totaldoler = balance;
+  const [product, setproduct] = useState([]);
+  var productinfo = [];
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`)
+      .then((res) => res.json())
+      .then((data) => setproduct(data));
+  });
+  var totaldoler = 0;
+  product.forEach((prod) => {
+    totaldoler =
+      totaldoler + parseFloat(prod.balance) * parseFloat(prod.quentity);
+    var _id = prod._id;
+    var service = prod.service;
+    var quentity = prod.quentity;
+    var picture = prod.picture;
+    var balance = prod.balance;
+    const product = {
+      _id,
+      service,
+      quentity,
+      picture,
+      balance,
+    };
+    productinfo.unshift(product);
+  });
   const firstnamehandle = (e) => {
     const firstname = e.target.value;
     setfirstname(firstname);
@@ -103,10 +123,10 @@ const CheckOutPages = () => {
               />
             </div>
             {/* <input
-              type="text"
-              placeholder="Company Name"
-              className="company-input"
-            /> */}
+                type="text"
+                placeholder="Company Name"
+                className="company-input"
+              /> */}
             <select
               className="country-selected"
               id="cars"
@@ -157,35 +177,39 @@ const CheckOutPages = () => {
           <div className="checkout-info-right col col-12 col-sm-12 col-md-12 col-lg-3">
             <h5>Your Order</h5>
             <div className="checkout-product-con">
-              <div className="checkout-product">
-                <div className="checkout-product-info">
-                  <img src={data?.picture} alt="not found" />
-                  <div>
-                    <p>{data?.service} </p>
-                    <p className="checkout-price">${data?.balance}</p>
+              {product.map((prod) => (
+                <div className="checkout-product">
+                  <div className="checkout-product-info">
+                    <img src={prod?.picture} alt="not found" />
+                    <div>
+                      <p>{prod?.service} </p>
+                      <p className="checkout-price">
+                        ${parseFloat(prod?.balance) * parseFloat(prod.quentity)}
+                      </p>
+                    </div>
                   </div>
+                  <p>QTY {prod?.quentity}</p>
                 </div>
-                <p>QTY {quentity}</p>
-              </div>
+              ))}
               <div className="checkout-subtotla">
                 <p>Subtotal</p>
-                <h6>${parseFloat(data?.balance) * parseFloat(quentity)}</h6>
+                <h6>${totaldoler}</h6>
               </div>
               <h6>Shipping</h6>
               <div className="checkout-shipping">
-                <p>Delivery Fee:</p>
-                <h6>$2</h6>
+                <p>Flat rate:</p>
+                <h6>$10</h6>
               </div>
               <div className="checkout-totla">
                 <p>Total:</p>
-                <p>${parseFloat(data?.balance) * parseFloat(quentity) + 2}</p>
+                <p>${totaldoler + 10}</p>
               </div>
               <p className="checkout-personal">
                 Your personal data will be used to process your order, support
                 your experience throughout this website, and for other purposes
                 described in our privacy policy.
               </p>
-              <Link to="/payment" state={{ checkoutdata }}>
+              <Link to="/cartpayment" state={{ checkoutdata }}>
                 <button className="place-order-btn">Place Order</button>
               </Link>
             </div>
@@ -196,4 +220,4 @@ const CheckOutPages = () => {
   );
 };
 
-export default CheckOutPages;
+export default CartCheckOut;

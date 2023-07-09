@@ -10,8 +10,12 @@ import ServicesDescriptions from "../../Component/ServicesDescriptions/ServicesD
 import Additionalinformation from "../../Component/Additionalinformation/Additionalinformation";
 import UserReviews from "../../Component/UserReviews/UserReviews";
 import AddReview from "../../Component/AddReview/AddReview";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/UserContest";
 const ServicesDetailsPages = () => {
+  const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  const [quentity, setquentity] = useState(1);
   const {
     picture,
     service,
@@ -22,22 +26,19 @@ const ServicesDetailsPages = () => {
     balance,
     aditional,
   } = data;
-  console.log(data);
   const [imageurl, setimageurl] = useState(picture);
   const incrementquentity = () => {
     const quentity = document.getElementById("quentity");
     const intquentity = parseInt(quentity.innerText);
     const newquentity = intquentity + 1;
-    quentity.innerText = newquentity;
-    console.log(newquentity);
+    setquentity(newquentity);
   };
   const decresequentity = () => {
     const quentity = document.getElementById("quentity");
     const intquentity = parseInt(quentity.innerText);
     const newquentity = intquentity - 1;
     if (newquentity >= 1) {
-      quentity.innerText = newquentity;
-      console.log(newquentity);
+      setquentity(newquentity);
     } else {
       toast("Please Minimum One item selected!", {
         position: "top-center",
@@ -45,6 +46,64 @@ const ServicesDetailsPages = () => {
       });
       return;
     }
+  };
+  const handlecartadd = (info) => {
+    const customerName = user.displayName;
+    const customerEmail = user.email;
+    const customerPhoto = user.photoURL;
+    const cartinfo = {
+      customerName,
+      customerEmail,
+      customerPhoto,
+      picture,
+      service,
+      about,
+      offer,
+      Categories,
+      SKU,
+      balance,
+      aditional,
+      quentity,
+    };
+    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`, {
+      method: "POST",
+      body: JSON.stringify(cartinfo),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {})
+      .catch((err) => {});
+  };
+  const handlequentity = (data) => {
+    const customerName = user.displayName;
+    const customerEmail = user.email;
+    const customerPhoto = user.photoURL;
+    const cartinfo = {
+      customerName,
+      customerEmail,
+      customerPhoto,
+      picture,
+      service,
+      about,
+      offer,
+      Categories,
+      SKU,
+      balance,
+      aditional,
+      quentity,
+    };
+    fetch(`${process.env.REACT_APP_HOST_LINK}/buyproduct`, {
+      method: "POST",
+      body: JSON.stringify(cartinfo),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {})
+      .catch((err) => {});
   };
   return (
     <div className="detailspage-container">
@@ -108,15 +167,22 @@ const ServicesDetailsPages = () => {
           <div className="get-quentity">
             <div className="get-quentity-btn">
               <button onClick={incrementquentity}>+</button>
-              <p id="quentity">1</p>
+              <p id="quentity">{quentity}</p>
 
               <button onClick={decresequentity}>-</button>
             </div>
-            <Link to="/cart" className="addcart-btn">
+            <Link
+              onClick={() => handlecartadd(data)}
+              to="/cart"
+              className="addcart-btn"
+            >
               <button className="addcart-ibtn">Add to Cart</button>
             </Link>
           </div>
-          <Link to="/checkout">
+          <Link
+            // onClick={() => handlequentity(data)}
+            to={`/checkout/${data._id}/${quentity}`}
+          >
             <button className="buy-now-btn">Buy Now</button>
           </Link>
 

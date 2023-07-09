@@ -4,8 +4,6 @@ import "./Services.css";
 
 const Services = (props) => {
   const data = props.service;
-  console.log(data);
-  console.log(data.picture);
   return (
     <Link
       to={`/services/${data._id}`}

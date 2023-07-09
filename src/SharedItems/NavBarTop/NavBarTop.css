@@ -34,6 +34,17 @@
     border-radius: 6px;
 }
 
+#add {
+    text-decoration: none;
+    background-color: rgb(4, 52, 4);
+    border-radius: 2px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 15px;
+    padding: 6px 8px;
+}
+
 #nav-items {
     text-decoration: none;
     color: black;
@@ -95,4 +106,99 @@
 #searchicon {
     margin-left: 12px;
     font-size: 1.3rem;
+}
+
+#post-add-btn-t {
+    background-color: orange;
+
+}
+
+.image-user-con {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-name-nt {
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+
+
+.userinfo-btn:focus {
+    border: none;
+
+}
+
+.sidebar-hole-text {
+    border-bottom: 1px dotted gainsboro;
+    padding-bottom: 20px;
+}
+
+.cart-sidevar-con {
+    width: 100%;
+    border: none;
+}
+
+.sidebar-product {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar-cart-element {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cart-product-delate-btn {
+    margin-left: 10px;
+    border: 1px solid gray;
+    padding-bottom: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    font-size: 12px;
+}
+
+.cart-backet {
+    margin-bottom: 20px;
+    background-color: rgb(61, 60, 60);
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sidevar-price {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-sidebar {
+    width: 500px;
+    height: auto;
+    overflow-x: auto;
+}
+
+.checkout-btn-c {
+    border: 1px solid gainsboro;
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    padding: 11px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.p {
+    height: 200px;
 }

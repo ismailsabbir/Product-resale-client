@@ -3,7 +3,7 @@ import "./Spiner.css";
 import { Spinner } from "react-bootstrap";
 const Spiner = () => {
   return (
-    <div>
+    <div className="spiner-container">
       <h2>
         L
         <span>

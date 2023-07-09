@@ -6,12 +6,10 @@ import image2 from "../../../src/Images/money.jpg";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 const HomeCategory = (props) => {
   const category = props.category;
-  console.log(category);
   return (
     <div className="homecategory-con">
       <div className="homecategory-top">
         <h3>Browse items by category</h3>
-        {/* <p>Selected Your interior fruniture with Low cost</p> */}
       </div>
       <div className="homeactegoryitem row">
         {category.map((catego) => (

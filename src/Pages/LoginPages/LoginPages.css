@@ -1,0 +1,11 @@
+.login-con {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.login-btn {
+    height: 15px;
+}

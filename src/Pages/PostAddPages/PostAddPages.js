@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Form } from "react-bootstrap";
 import { BsFillImageFill } from "react-icons/bs";
-import { type } from "@testing-library/user-event/dist/type";
 const PostAddPages = () => {
   const [productcategory, setproductcategory] = useState([]);
   const [selectedcategory, setselectedcategory] = useState([]);
-  // const [categorydisabled, setdisabled] = useState(false);
+  const [sphoto1, setphoto1] = useState();
+  const [sphoto2, setphoto2] = useState();
+  const [sphoto3, setphoto3] = useState();
+  const [sphoto4, setphoto4] = useState();
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_HOST_LINK}/allcategory`)
       .then((req) => req.json())
@@ -20,9 +23,74 @@ const PostAddPages = () => {
       position: "top-center",
       autoClose: 1000,
     });
-    // setdisabled(true);
   };
-  console.log(selectedcategory);
+
+  const handleimage1 = (e) => {
+    const image1 = e.target.files[0];
+    const formdata = new FormData();
+    formdata.append("image", image1);
+    const url = `https://api.imgbb.com/1/upload?key=${imagebb}`;
+    fetch(url, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setphoto1(data.data.url);
+        }
+      });
+  };
+  const handleimage22 = (e) => {
+    const image1 = e.target.files[0];
+    const formdata = new FormData();
+    formdata.append("image", image1);
+    const url = `https://api.imgbb.com/1/upload?key=${imagebb}`;
+    fetch(url, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setphoto2(data.data.url);
+        }
+      });
+  };
+  const handleimage3 = (e) => {
+    const image1 = e.target.files[0];
+    const formdata = new FormData();
+    formdata.append("image", image1);
+    const url = `https://api.imgbb.com/1/upload?key=${imagebb}`;
+    fetch(url, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setphoto3(data.data.url);
+        }
+      });
+  };
+  const handleimage4 = (e) => {
+    const image1 = e.target.files[0];
+    const formdata = new FormData();
+    formdata.append("image", image1);
+    const url = `https://api.imgbb.com/1/upload?key=${imagebb}`;
+    fetch(url, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setphoto4(data.data.url);
+        }
+      });
+  };
+
+  const imagebb = process.env.REACT_APP_IMGBB;
   const handlesubmitadd = (event) => {
     event.preventDefault();
     const category_id = selectedcategory;
@@ -41,6 +109,10 @@ const PostAddPages = () => {
     const Division = event.target.division.value;
     const City = event.target.city.value;
     const aditional = [Type, Meterial, Shape, Color];
+    const picture = sphoto1;
+    const picture1 = sphoto2;
+    const picture2 = sphoto3;
+    const picture3 = sphoto4;
     const data = {
       category_id,
       service,
@@ -54,14 +126,27 @@ const PostAddPages = () => {
       PostDate,
       Division,
       City,
+      picture,
+      picture1,
+      picture2,
+      picture3,
     };
-    console.log(data);
-    toast("Post Add", { position: "top-center", autoClose: 1000 });
+    fetch(`${process.env.REACT_APP_HOST_LINK}/productadd`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        toast("Post Add", { position: "top-center", autoClose: 1000 });
+      });
   };
   return (
     <div className="postadd-container">
       <h4 className="add-product-head">Add product for Seal!!</h4>
-      <h6>Select Category:</h6>
+      <h6 className="select-category-head">Select Category:</h6>
       <div className="homeactegoryitem row">
         {productcategory.map((catego, i) => (
           <Link
@@ -196,34 +281,66 @@ const PostAddPages = () => {
           </Form.Group>
 
           <div className="image-input-con col col-12 col-sm-12 col-md-4 col-lg-5 first-input">
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <label for="input-file" id="file">
-                <BsFillImageFill className="image-icon"></BsFillImageFill>
-                <p className="add-poto-t">Add Photo</p>
-              </label>
-              <input type="file" id="input-file" className="fileinput" />
-            </Form.Group>
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <label for="input-file" id="file">
-                <BsFillImageFill className="image-icon"></BsFillImageFill>
-                <p className="add-poto-t">Add Photo</p>
-              </label>
-              <input type="file" id="input-file" className="fileinput" />
-            </Form.Group>
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <label for="input-file" id="file">
-                <BsFillImageFill className="image-icon"></BsFillImageFill>
-                <p className="add-poto-t">Add Photo</p>
-              </label>
-              <input type="file" id="input-file" className="fileinput" />
-            </Form.Group>
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-              <label for="input-file" id="file">
-                <BsFillImageFill className="image-icon"></BsFillImageFill>
-                <p className="add-poto-t">Add Photo</p>
-              </label>
-              <input type="file" id="input-file" className="fileinput" />
-            </Form.Group>
+            <div>
+              <Form.Group className="mb-3">
+                <label for="input-file1" id="file">
+                  <BsFillImageFill className="image-icon"></BsFillImageFill>
+                  <p className="add-poto-t">Add Photo</p>
+                  <input
+                    type="file"
+                    id="input-file1"
+                    className="fileinput"
+                    name="image"
+                    onChange={handleimage1}
+                  />
+                </label>
+              </Form.Group>
+            </div>
+            <div>
+              <Form.Group className="mb-3">
+                <label for="input-file2" id="file">
+                  <BsFillImageFill className="image-icon"></BsFillImageFill>
+                  <p className="add-poto-t">Add Photo</p>
+                  <input
+                    type="file"
+                    id="input-file2"
+                    className="fileinput"
+                    name="imagef"
+                    onChange={handleimage22}
+                  />
+                </label>
+              </Form.Group>
+            </div>
+            <div>
+              <Form.Group className="mb-3">
+                <label for="input-file3" id="file">
+                  <BsFillImageFill className="image-icon"></BsFillImageFill>
+                  <p className="add-poto-t">Add Photo</p>
+                </label>
+                <input
+                  type="file"
+                  id="input-file3"
+                  className="fileinput"
+                  name="images"
+                  onChange={handleimage3}
+                />
+              </Form.Group>
+            </div>
+            <div>
+              <Form.Group className="mb-3">
+                <label for="input-file4" id="file">
+                  <BsFillImageFill className="image-icon"></BsFillImageFill>
+                  <p className="add-poto-t">Add Photo</p>
+                </label>
+                <input
+                  type="file"
+                  id="input-file4"
+                  className="fileinput"
+                  name="imaget"
+                  onChange={handleimage4}
+                />
+              </Form.Group>
+            </div>
           </div>
           <Form.Group
             className="mb-3 col col-12 col-sm-12 col-md-4 col-lg-5 first-input"

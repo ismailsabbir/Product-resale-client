@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CartsPages.css";
-import images from "../../Images/cart.webp";
 import { Table } from "react-bootstrap";
 import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { ToastContainer } from "react-toastify";
 const CartsPages = () => {
-  const incrementquentity = () => {};
-  const decresequentity = () => {};
+  const [product, setproduct] = useState([]);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`)
+      .then((res) => res.json())
+      .then((data) => setproduct(data));
+  });
+  const handlecartremove = (params) => {
+    Swal.fire({
+      title: "Do you want to Delete cart product?",
+      showCancelButton: true,
+      confirmButtonText: "Delate",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct/${params._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Delete Sucessfull");
+            }
+          });
+      }
+    });
+  };
+  var subtotal = 0;
+  product.forEach((prod) => {
+    subtotal = subtotal + parseFloat(prod.balance) * parseFloat(prod.quentity);
+  });
   return (
     <div className="cartpages-container-hole">
       <div className="cartpage-container">
@@ -28,30 +57,32 @@ const CartsPages = () => {
                   <tr>
                     <th className="tablehead">Products</th>
                     <th className="tablehead">Price</th>
-                    <th className="tablehead">Quantity</th>
+                    <th className="tablehead">Quentity</th>
                     <th className="tablehead">Total</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div className="cartinfo">
-                        <button className="cart-delate-btn">X</button>
-                        <img src={images} alt="not found" />
-                        <p> Metal Pendant Light</p>
-                      </div>
-                    </td>
-                    <td>$240.00</td>
-                    <td>
-                      <div className="get-quentity-btn">
-                        <button onClick={incrementquentity}>+</button>
-                        <p id="quentity">1</p>
-
-                        <button onClick={decresequentity}>-</button>
-                      </div>
-                    </td>
-                    <td>$960.00</td>
-                  </tr>
+                  {product.map((prod) => (
+                    <tr>
+                      <td>
+                        <div className="cartinfo">
+                          <button
+                            onClick={() => handlecartremove(prod)}
+                            className="cart-delate-btn"
+                          >
+                            X
+                          </button>
+                          <img src={prod.picture} alt="not found" />
+                          <p> {prod.service}</p>
+                        </div>
+                      </td>
+                      <td id="productprice">${prod.balance}</td>
+                      <td id="productprice">{prod.quentity}</td>
+                      <td className="totla_price">
+                        ${prod.balance * prod.quentity}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </Table>
             </div>
@@ -69,7 +100,7 @@ const CartsPages = () => {
             <h5 className="cart-title-t">Cart Totals</h5>
             <div className="subtotla">
               <p>Subtotal</p>
-              <p>$960.00</p>
+              <p>${subtotal}</p>
             </div>
             <p className="shippingca">Shipping</p>
             <div className="flat-con">
@@ -85,16 +116,28 @@ const CartsPages = () => {
             </div>
             <div className="total-con">
               <p>Total:</p>
-              <p>$970.00</p>
+              <p className="subtotlalast">${subtotal + 10}</p>
             </div>
-            <Link to="/checkout">
-              <button to="/checkout" className="checkout-btn">
+            <Link to="/cartcheckout">
+              <button to="" className="checkout-btn">
                 Proceed CheckOut
               </button>
             </Link>
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

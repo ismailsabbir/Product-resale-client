@@ -9,12 +9,12 @@ import UserContest from "./Context/UserContest";
 const queryclient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <UserContest>
-    <React.StrictMode>
-      <QueryClientProvider client={queryclient}>
+  <QueryClientProvider client={queryclient}>
+    <UserContest>
+      <React.StrictMode>
         <App />
-      </QueryClientProvider>
-    </React.StrictMode>
-  </UserContest>
+      </React.StrictMode>
+    </UserContest>
+  </QueryClientProvider>
 );
 reportWebVitals();

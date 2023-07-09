@@ -152,3 +152,29 @@ td {
     color: black;
     transition: all 0.2s;
 }
+
+.selected-text {
+    margin-top: 15px;
+    color: orange;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cart-selected-btn {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#selected {
+    background-color: orange;
+    border: orange;
+}
+
+#notselected {
+    background-color: white;
+}
+
+.subtotlalast {
+    color: orange;
+    font-weight: 500;
+}

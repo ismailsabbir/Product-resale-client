@@ -12,8 +12,15 @@
 .add-product-head {
     text-align: center;
     margin-bottom: 20px;
-    color: aqua;
+    color: rgb(2, 42, 2)
+}
 
+.select-category-head {
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(63, 62, 62);
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 10px;
 }
 
 #add-category {

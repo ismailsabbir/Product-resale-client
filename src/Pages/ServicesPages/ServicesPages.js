@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ServicesPages.css";
-// import ServicesBanner from "../../Component/ServicesBanner/ServicesBanner";
 import MainService from "../../Component/MainService/MainService";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MultiRangeSlider from "../../Component/MultiRangeSlider/MultiRangeSlider";
 import { Dropdown, Form } from "react-bootstrap";
 const ServicesPages = () => {
@@ -10,36 +9,21 @@ const ServicesPages = () => {
   const [categorys, setcategories] = useState([]);
   const [minprice, setminprice] = useState(60);
   const [maxprice, setmaxprice] = useState(560);
-  const [selectedcategory, setselectedcategory] = useState();
   const [color, setcolor] = useState();
-  console.log(services);
   const handlecolorsubmit = (event) => {
     const color = event.target.value;
     setcolor(color);
   };
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_HOST_LINK}/products`)
-      .then((res) => res.json())
-      .then((data) => setservices(data));
-  }, []);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_HOST_LINK}/category`)
       .then((req) => req.json())
       .then((data) => setcategories(data));
   }, []);
   const categoryproductlood = (category) => {
-    setselectedcategory(category);
     fetch(`${process.env.REACT_APP_HOST_LINK}/categoryproduct/${category}`)
       .then((res) => res.json())
       .then((data) => setservices(data));
   };
-  // useEffect(() => {
-  //   fetch(
-  //     `${process.env.REACT_APP_HOST_LINK}/priceproduct?minprice=${minprice}&maxprice=${maxprice}&category=${selectedcategory}`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setservices(data));
-  // }, [minprice, maxprice, selectedcategory]);
   useEffect(() => {
     fetch(
       `${process.env.REACT_APP_HOST_LINK}/priceproduct?minprice=${minprice}&maxprice=${maxprice}`
@@ -63,6 +47,11 @@ const ServicesPages = () => {
       .then((req) => req.json())
       .then((data) => setservices(data));
   };
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_HOST_LINK}/products`)
+      .then((res) => res.json())
+      .then((data) => setservices(data));
+  }, []);
 
   return (
     <div className="servicespages-container">

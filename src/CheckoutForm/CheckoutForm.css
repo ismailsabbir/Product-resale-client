@@ -1,0 +1,25 @@
+#paydoller {
+    margin-top: 20px;
+    margin-left: 25%;
+}
+
+.payment-sucess {
+    border-top: 1px solid gainsboro;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: rgb(1, 37, 1);
+    font-weight: 500;
+
+}
+
+.transaction-id {
+    color: gray;
+    font-size: 1rem
+}
+
+.transactionspan {
+    margin-right: 5px;
+    font-weight: 500;
+    font-size: 1rem;
+    color: rgb(43, 43, 43);
+}
