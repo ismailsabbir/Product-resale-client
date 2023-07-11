@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./BuyersDashborde.css";
 import DashboardLeft from "../../Component/DashboardLeft/DashboardLeft";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useQuery } from "react-query";
+import { AuthContext } from "../../Context/UserContest";
 const BuyersDashborde = () => {
-  // const [orders, setorders] = useState([]);
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_HOST_LINK}/orderproduct`)
-  //     .then((res) => res.json())
-  //     .then((data) => setorders(data));
-  // }, []);
-  const { data: orders = [], refetch } = useQuery({
-    queryKey: ["orderproduct"],
-    queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_HOST_LINK}/orderproduct`
-      );
-      const data = res.json();
-      return data;
+  const { user, userlogout, loading } = useContext(AuthContext);
+  const userId = user?.uid;
+
+  const { data: orders = [], refetch } = useQuery(
+    {
+      queryKey: ["orderproduct"],
+      queryFn: async () => {
+        const res = await fetch(
+          `${process.env.REACT_APP_HOST_LINK}/orderproduct?email=${user?.email}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem(
+                "reseall_product_token"
+              )}`,
+            },
+          }
+        );
+        console.log(res);
+        if (res?.status === 401 || res.status === 403) {
+          return userlogout();
+        }
+        const data = res.json();
+        return data;
+      },
+      enabled: !!userId,
     },
-  });
+    [user?.email]
+  );
+
   console.log(orders);
   const cancleorder = (order) => {
     Swal.fire({
@@ -54,7 +68,7 @@ const BuyersDashborde = () => {
         <div className="dashboard-right col col-6 col-sm-3 col-md-3 col-lg-8 ">
           <h5 className="mb-4 text-inherit">My Orders</h5>
           <div className="my-order-con">
-            {orders.map((order) => (
+            {orders?.map((order) => (
               <div className="order-info-con">
                 <div className="order-info-top">
                   <div>

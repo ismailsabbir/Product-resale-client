@@ -19,6 +19,7 @@ const NavBarTop = () => {
   const [color, setcolor] = useState(false);
   const { user, userlogout } = useContext(AuthContext);
   const photo = user?.photoURL;
+  console.log(user?.photoURL);
   var price = 0;
   const { data: cartproduct = [], refetch } = useQuery({
     queryKey: ["cartproduct"],
@@ -273,12 +274,21 @@ const NavBarTop = () => {
                             <img src={photo} alt="not found" />
                           </div>
                         </div>
-                        <p className="user-name-nt">{user.displayName}</p>
+                        <p className="user-name-nt">{user?.displayName}</p>
                       </div>
                     ) : (
                       <div className="image-user-con">
-                        <FaUserAlt className="iconall"></FaUserAlt>
-                        <p className="user-name-nt">{user.displayName}</p>
+                        {user?.uid ? (
+                          <>
+                            <FaUserAlt className="iconall"></FaUserAlt>
+                            <p className="user-name-nt">{user?.displayName}</p>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+
+                        {/* <FaUserAlt className="iconall"></FaUserAlt>
+                        <p className="user-name-nt">{user?.displayName}</p> */}
                       </div>
                     )}
                   </summary>

@@ -20,6 +20,12 @@ import PrivetRoutes from "./Routes/PrivetRoutes";
 import PaymentTypesPages from "./Pages/PaymentTypesPages/PaymentTypesPages";
 import CartCheckOut from "./Pages/CartCheckOut/CartCheckOut";
 import CartPaymentTypesPages from "./Pages/CartPaymentTypesPages/CartPaymentTypesPages";
+import AdminRoutes from "./Routes/AdminRoutes/AdminRoutes";
+import SellerRoutes from "./Routes/SellerRoutes/SellerRoutes";
+import BuyerRoutes from "./Routes/BuyerRoutes/BuyerRoutes";
+import AllUsers from "./Component/AllUsers/AllUsers";
+import AllProduct from "./Component/AllProduct/AllProduct";
+import AllOrders from "./Component/Allorders/AllOrders";
 function App() {
   const router = createBrowserRouter([
     {
@@ -119,15 +125,40 @@ function App() {
             },
             {
               path: "/dashboard/admin",
-              element: <AdminDashborde></AdminDashborde>,
+              element: (
+                <AdminRoutes>
+                  <AdminDashborde></AdminDashborde>
+                </AdminRoutes>
+              ),
             },
             {
+              path: "/dashboard/admin/alluser",
+              element: <AllUsers></AllUsers>,
+            },
+            {
+              path: "/dashboard/admin/allproduct",
+              element: <AllProduct></AllProduct>,
+            },
+            {
+              path: "/dashboard/admin/allorders",
+              element: <AllOrders></AllOrders>,
+            },
+
+            {
               path: "/dashboard/sealler",
-              element: <SeallerDashborde></SeallerDashborde>,
+              element: (
+                <SellerRoutes>
+                  <SeallerDashborde></SeallerDashborde>
+                </SellerRoutes>
+              ),
             },
             {
               path: "/dashboard/buyers",
-              element: <BuyersDashborde></BuyersDashborde>,
+              element: (
+                <BuyerRoutes>
+                  <BuyersDashborde></BuyersDashborde>
+                </BuyerRoutes>
+              ),
             },
           ],
         },

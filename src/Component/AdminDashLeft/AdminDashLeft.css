@@ -1,0 +1,13 @@
+.all-user {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: blue;
+    /* border: 1px solid brown; */
+}
+
+.all-user p {
+    margin-left: 8px;
+    margin-top: 13px;
+    color: darkcyan;
+}

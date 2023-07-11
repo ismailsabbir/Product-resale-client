@@ -62,7 +62,7 @@ const SignupPages = () => {
         createuserwithemailpassword(email, password)
           .then((req) => {
             const user = req.user;
-            console.log(user);
+            const currentuser = { email: user.email };
             setsuccessmessage(true);
             updatephoto(photoURL)
               .then((res) => res.json())
@@ -88,6 +88,17 @@ const SignupPages = () => {
               .then((data) => {
                 console.log(data);
               });
+            fetch(`${process.env.REACT_APP_HOST_LINK}/jwt`, {
+              method: "POST",
+              body: JSON.stringify(currentuser),
+              headers: {
+                "Content-type": "application/json",
+              },
+            })
+              .then((req) => req.json())
+              .then((data) => {
+                localStorage.setItem("reseall_product_token", data.token);
+              });
           })
           .catch((error) => {
             setpassworderror("Email already used");
@@ -99,7 +110,7 @@ const SignupPages = () => {
     googlecreateuser()
       .then((req) => {
         const user = req.user;
-        console.log(user);
+        const currentuser = { email: user.email };
         setsuccessmessage(true);
         fetch(`${process.env.REACT_APP_HOST_LINK}/user`, {
           method: "POST",
@@ -111,6 +122,17 @@ const SignupPages = () => {
           .then((req) => req.json())
           .then((data) => {
             console.log(data);
+          });
+        fetch(`${process.env.REACT_APP_HOST_LINK}/jwt`, {
+          method: "POST",
+          body: JSON.stringify(currentuser),
+          headers: {
+            "Content-type": "application/json",
+          },
+        })
+          .then((req) => req.json())
+          .then((data) => {
+            localStorage.setItem("reseall_product_token", data.token);
           });
       })
       .catch((error) => {

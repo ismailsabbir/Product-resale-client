@@ -1,0 +1,60 @@
+.myproduct-container {
+    border: 1px solid gainsboro;
+    padding: 20px;
+    background-color: rgb(226, 239, 251);
+    margin-bottom: 30px;
+}
+
+.my-product-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    /* border: 1px solid gainsboro; */
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.myproduct-img-sev {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.my-pro-tit {
+    color: rgb(3, 3, 83);
+    font-size: 1.2rem;
+}
+
+.myproduct-img-sev img {
+    width: 110px;
+    height: 120px;
+    margin-right: 10px;
+}
+
+.myproduct-img-sev p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(73, 72, 72);
+
+}
+
+.myp-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+}
+
+.delete-pro-btn {
+    border: 1px solid gainsboro;
+    padding: 6px 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(31, 30, 30);
+    border-radius: 4px;
+}
+
+.delete-pro-btn:hover {
+    background-color: rgb(210, 233, 254);
+}

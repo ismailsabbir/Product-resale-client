@@ -1,0 +1,35 @@
+.alluser-con {
+    border: 1px solid gainsboro;
+    padding: 20px;
+    background-color: rgb(226, 239, 251);
+    margin-bottom: 30px;
+}
+
+.user-photo {
+    width: 60px;
+    height: 60px;
+}
+
+.all-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.delete-user {
+    border: 1px solid gainsboro;
+    padding: 6px 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(50, 50, 50);
+    border-radius: 4px;
+}
+
+.delete-user:hover {
+    background-color: rgb(175, 214, 249);
+
+}
