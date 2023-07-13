@@ -59,3 +59,27 @@
     font-family: 'Times New Roman', Times, serif;
     color: rgb(3, 173, 173);
 }
+
+@media only screen and (max-width: 687px) {
+    .order-main-info-con {
+        /* border: 2px solid brown; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /* .myproduct-container {
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+        border: 1px solid red;
+    } */
+
+    .order-info-con {
+        padding: 10px;
+    }
+
+    .all-order-serv-name {
+        margin-top: 15px;
+        margin-right: 8px;
+    }
+}

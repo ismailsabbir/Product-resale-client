@@ -40,10 +40,10 @@ const SeallerDashborde = () => {
   return (
     <div className="dashboards-container">
       <div className="row">
-        <div className="dashboard-left col col-6 col-sm-3 col-md-3 col-lg-3">
+        <div className="dashboard-left col col-12 col-sm-12 col-md-3 col-lg-3">
           <DashboardLeft></DashboardLeft>
         </div>
-        <div className="dashboard-right col col-6 col-sm-3 col-md-3 col-lg-8 ">
+        <div className="dashboard-right col col-12 col-sm-12 col-md-3 col-lg-8 ">
           <div className="myproduct-container">
             <h5>My Product</h5>
             {sellerproduct?.map((sellprod) => (

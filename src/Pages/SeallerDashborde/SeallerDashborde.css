@@ -58,3 +58,21 @@
 .delete-pro-btn:hover {
     background-color: rgb(210, 233, 254);
 }
+
+@media only screen and (max-width: 687px) {
+    .my-product-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .myproduct-img-sev {
+        width: 100%;
+        /* border: 1px solid brown; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 6px;
+    }
+}
