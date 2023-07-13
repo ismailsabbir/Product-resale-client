@@ -4,8 +4,8 @@ import image1 from "../../../src/Images/design1.webp";
 import image2 from "../../../src/Images/design2.webp";
 import Services from "../Services/Services";
 const HomeDesign = (props) => {
-  const services = props.services;
-  const twoservice = services.slice(0, 2);
+  const services = props?.services;
+  const twoservice = services?.slice(0, 2);
   return (
     <div className="homedesign-container">
       <div className="homedesign-left">

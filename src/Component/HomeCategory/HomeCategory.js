@@ -38,7 +38,7 @@ const HomeCategory = (props) => {
             Post Your Add For Free
           </Link>
         </div>
-        <img src={image} alt="not found" />
+        <img className="earning-imge2" src={image} alt="not found" />
       </div>
     </div>
   );

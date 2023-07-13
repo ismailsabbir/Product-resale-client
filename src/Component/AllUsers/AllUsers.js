@@ -79,11 +79,11 @@ const AllUsers = () => {
   return (
     <div className="dashboards-container">
       <div className="row">
-        <div className="dashboard-left col col-6 col-sm-1 col-md-3 col-lg-3">
+        <div className="dashboard-left col col-12 col-sm-12 col-md-3 col-lg-3">
           {/* <DashboardLeft></DashboardLeft> */}
           <AdminDashLeft></AdminDashLeft>
         </div>
-        <div className="dashboard-right col col-6 col-sm-11 col-md-8 col-lg-8 ">
+        <div className="dashboard-right col col-12 col-sm-12 col-md-8 col-lg-8 ">
           <div className="alluser-con">
             <h5>Alluser</h5>
             <div className="all-user-info-con">

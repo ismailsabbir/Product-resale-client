@@ -30,7 +30,7 @@ const PaymentTypesPages = () => {
   return (
     <div className="paymentcontainer">
       <div className="payment-text">
-        <div className="row ">
+        <div className="row payment-types-pt ">
           <div className="col col-12 col-sm-12 col-md-12 col-lg-8">
             <h5>Select Payment Method</h5>
             <div className="payment-typess">

@@ -33,3 +33,19 @@
     background-color: rgb(175, 214, 249);
 
 }
+
+@media only screen and (max-width: 687px) {
+    .all-user-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .user-photo {
+        margin-bottom: 4px;
+    }
+
+    .alluser-name {
+        /* border: 1px solid brown; */
+        margin-top: 18px;
+    }
+}

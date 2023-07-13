@@ -1,8 +1,6 @@
 .detailspage-container {
-    /* border: 1px solid brown; */
     margin-top: 140px;
     margin-bottom: 100px;
-
 }
 
 .details-hole {
@@ -10,13 +8,8 @@
     justify-content: center;
 }
 
-.details-left {
-    /* border: 1px solid black; */
-}
-
 .details-router {
     display: flex;
-
 }
 
 .details-path {
@@ -40,9 +33,6 @@
 .details-left-left {
     width: 150px;
     height: 150px;
-    /* height: 150px; */
-    /* opacity: .5; */
-    /* margin-bottom: 10px; */
 }
 
 .small-imge {
@@ -55,19 +45,16 @@
 .small-imge img {
     height: 100%;
     width: 100%;
-
 }
 
 .small-imge:hover {
     opacity: 1;
     cursor: pointer;
-
 }
 
 .big-imge {
     height: 521px;
     width: 370x;
-    /* border: 2px solid brown; */
     width: 100%;
 }
 
@@ -127,7 +114,6 @@
 
 .get-quentity {
     display: flex;
-
 }
 
 .get-quentity-btn {
@@ -142,12 +128,9 @@
 .addcart-btn {
     width: 100%;
     border: 1px solid gray;
-
 }
 
 .addcart-btn:hover {
-    /* background-color: black;
-    color: white; */
     font-size: 1.1rem;
     font-weight: 500;
     margin-top: 1px;
@@ -255,4 +238,66 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 687px) {
+    .detailspage-container {
+        /* border: 1px solid gainsboro; */
+        margin-top: 80px;
+    }
+
+    .imge-show {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .details-left-left {
+        /* border: 4px solid black; */
+        display: flex;
+        width: 100%;
+        /* margin-top: 10px; */
+    }
+
+    .small-imge {
+        /* border: 4px solid brown; */
+        width: auto;
+    }
+
+    .big-imge {
+        /* border: 4px solid gray; */
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .details-right {
+        /* border: 4px solid brown; */
+        /* width: 100px */
+        margin: 0;
+        padding: 10px;
+    }
+
+    /* .addcart-btn {
+        width: auto;
+    }
+
+    .buy-now-btn {
+        width: auto;
+    } */
+
+    .delivery-info-con {
+        width: 100%;
+        display: none;
+    }
+
+    .sku-category-con {
+        width: 100%;
+        display: none;
+    }
+
+    .payment-types-con {
+        display: none;
+    }
 }

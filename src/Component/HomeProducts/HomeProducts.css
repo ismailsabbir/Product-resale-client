@@ -52,3 +52,9 @@
     /* transition: 1s ease 0.2s; */
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 687px) {
+    .homeproduct-top h2 {
+        font-size: 1.5rem;
+    }
+}

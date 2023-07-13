@@ -3,13 +3,16 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    /* border: 1px solid brown; */
+    background-color: rgb(83, 83, 231);
+    padding: 20px;
 }
 
 .dashbord-link {
     width: 100%;
     border: 1px solid gainsboro;
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 1rem;
     font-weight: 500;
     padding: 8px;

@@ -1,0 +1,16 @@
+.allproduct-sev-name {
+    color: rgb(4, 92, 92);
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 687px) {
+    .all-user-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .allproduct-sev-name {
+        color: rgb(4, 92, 92);
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,106 @@
+.dash-user {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    border: 1px solid gainsboro;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.dashbord-right-con {
+    /* border: 1px solid rgb(2, 29, 29); */
+    background-color: rgb(163, 209, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+}
+
+.dashbord-right-top {
+    color: orange;
+}
+
+.dash-user-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1;
+    background-color: white;
+    color: rgb(67, 67, 67);
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+.all-type-info-con {
+    /* border: 1px solid gainsboro; */
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.number-user {
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 5px; */
+    width: 200px;
+    height: 65px;
+    line-height: 1;
+}
+
+.number-user h5 {
+    color: gray;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.number-user p {
+    color: black;
+    font-size: 1.1rm;
+    font-weight: 600;
+}
+
+.das-use {
+    font-size: 1.5rem;
+    color: rgb(245, 104, 104);
+}
+
+.das-use1 {
+    font-size: 1.5rem;
+    color: rgb(184, 116, 248)
+}
+
+.das-use2 {
+    font-size: 1.5rem;
+    color: rgb(243, 243, 143)
+}
+
+.das-use3 {
+    font-size: 1.5rem;
+    color: rgb(145, 199, 246)
+}
+
+@media only screen and (max-width: 687px) {
+    .all-type-info-con {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .number-user {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}

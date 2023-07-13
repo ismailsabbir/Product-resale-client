@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/UserContest";
 import { useQuery } from "react-query";
 import AdminDashLeft from "../AdminDashLeft/AdminDashLeft";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "./Allorders.css";
+import Swal from "sweetalert2";
 
 const AllOrders = () => {
   const { user, userlogout } = useContext(AuthContext);
@@ -30,32 +32,73 @@ const AllOrders = () => {
     // enabled: !!userId,
   });
   console.log(allorder);
+  const cancleorder = (order) => {
+    Swal.fire({
+      title: "Do you want to delete order?",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${process.env.REACT_APP_HOST_LINK}/orderproduct/${order._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              toast("order delete!", {
+                position: "top-center",
+                autoClose: 500,
+              });
+            }
+            refetch();
+          });
+      }
+    });
+  };
   return (
     <div className="dashboards-container">
       <div className="row">
-        <div className="dashboard-left col col-6 col-sm-1 col-md-3 col-lg-3">
-          {/* <DashboardLeft></DashboardLeft> */}
+        <div className="dashboard-left col col-12 col-sm-12 col-md-3 col-lg-3">
           <AdminDashLeft></AdminDashLeft>
         </div>
-        <div className="dashboard-right col col-6 col-sm-11 col-md-8 col-lg-8 ">
-          <div className="alluser-con">
-            <h5>Alluser</h5>
-            <div className="all-user-info-con">
-              {allorder?.map((product) => (
-                <div className="all-user-info">
-                  <img className="user-photo" src={product.picture} alt="not" />
-                  <p>{product.firstname}</p>
-                  {/* <p>{user.displayName}</p> */}
-
-                  {/* <button
-                      onClick={() => handledelateuser(user._id)}
-                      className="delete-user"
-                    >
-                      Delete user
-                    </button> */}
+        <div className="dashboard-right col col-12 col-sm-12 col-md-3 col-lg-8 ">
+          <h5 className="mb-4 text-inherit">My Orders</h5>
+          <div className="my-order-con">
+            {allorder?.map((order) => (
+              <div className="order-info-con">
+                <div className="order-info-top">
+                  <div>
+                    <p>
+                      order: <span className="order-id">{order._id}</span>{" "}
+                    </p>
+                    <p>Placed on:</p>
+                  </div>
+                  <button
+                    onClick={() => cancleorder(order)}
+                    className="cancle-order-btn"
+                  >
+                    Cancle order
+                  </button>
                 </div>
-              ))}
-            </div>
+
+                {order.productinfo?.map((prod) => (
+                  <div className="order-main-info-con">
+                    <div className="order-main-img-name">
+                      <img src={prod.picture} alt="not found" />
+                      <p className="all-order-serv-name">{prod.service}</p>
+                    </div>
+                    <p>{order.firstname}</p>
+                    <p>QTY: {prod.quentity}</p>
+                    {order.transactionId ? (
+                      <p>Payment Complete</p>
+                    ) : (
+                      <p>payment pending</p>
+                    )}
+                    <p>{prod.balance}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>

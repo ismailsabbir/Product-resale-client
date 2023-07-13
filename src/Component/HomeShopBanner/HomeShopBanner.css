@@ -41,3 +41,19 @@
     font-size: 3rem;
     font-weight: 600;
 }
+
+@media only screen and (max-width: 687px) {
+    .homeshopbanner-con {
+        height: auto;
+        padding: 20px 5px;
+    }
+
+    .banner-shop-text {
+        width: 95%;
+    }
+
+    .banner-shop-text h2 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}

@@ -133,3 +133,18 @@
     width: 50%;
     border-radius: 4px;
 }
+
+@media only screen and (max-width: 687px) {
+    .payment-text {
+        width: 90%;
+    }
+
+    .payment-typess {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .bkash {
+        margin-bottom: 15px;
+    }
+}

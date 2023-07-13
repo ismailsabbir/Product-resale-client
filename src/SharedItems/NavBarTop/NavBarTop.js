@@ -19,18 +19,21 @@ const NavBarTop = () => {
   const [color, setcolor] = useState(false);
   const { user, userlogout } = useContext(AuthContext);
   const photo = user?.photoURL;
-  console.log(user?.photoURL);
   var price = 0;
-  const { data: cartproduct = [], refetch } = useQuery({
-    queryKey: ["cartproduct"],
-    queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`);
-      const data = res.json();
-      return data;
+  const { data: cartproduct = [], refetch } = useQuery(
+    {
+      queryKey: ["cartproduct"],
+      queryFn: async () => {
+        const res = await fetch(
+          `${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`
+        );
+        const data = res.json();
+        return data;
+      },
     },
-  });
-
-  cartproduct.forEach((element) => {
+    [user?.email]
+  );
+  cartproduct?.forEach((element) => {
     price = price + parseFloat(element.quentity) * parseFloat(element.balance);
   });
   const handleclick = () => {
@@ -41,7 +44,6 @@ const NavBarTop = () => {
   };
   const handlesearch = (event) => {
     event.preventDefault();
-    // const searchvalue = event.target.searchvalue.value;
   };
   const changecolor = () => {
     if (window.scrollY >= 80) {
@@ -79,6 +81,15 @@ const NavBarTop = () => {
           });
       }
     });
+  };
+  const handlesignout = () => {
+    userlogout()
+      .then(() => {
+        console.log("logout");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <div className="navbar-container">
@@ -135,15 +146,6 @@ const NavBarTop = () => {
                   >
                     Dashboards
                   </NavLink>
-                  {/* <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "new-item-color" : undefined
-                    }
-                    id="nav-item"
-                    to="/dashboard/buyers"
-                  >
-                    My Orders
-                  </NavLink> */}
                   <NavLink id="nav-item" onClick={logouthandler}>
                     LogOut
                   </NavLink>
@@ -190,7 +192,6 @@ const NavBarTop = () => {
                   onClick={handleclick}
                 ></FiSearch>
                 <div>
-                  {/* <AiOutlineShopping className="iconall"></AiOutlineShopping> */}
                   <div className="drawer drawer-end">
                     <input
                       id="my-drawer-4"
@@ -198,9 +199,14 @@ const NavBarTop = () => {
                       className="drawer-toggle"
                     />
                     <div className="drawer-content">
-                      {/* Page content here */}
                       <label htmlFor="my-drawer-4" className="drawer-button ">
-                        <AiOutlineShopping className="iconall"></AiOutlineShopping>
+                        <div className="indicator">
+                          <span className="indicator-item badge badge-secondary">
+                            {cartproduct?.length}
+                          </span>
+                          <AiOutlineShopping className="iconall"></AiOutlineShopping>
+                        </div>
+                        {/* <AiOutlineShopping className="iconall"></AiOutlineShopping> */}
                       </label>
                     </div>
                     <div className="drawer-side mt-20">
@@ -252,7 +258,11 @@ const NavBarTop = () => {
                         <Link to="/cart" className="checkout-btn-c">
                           <button>View Cart</button>
                         </Link>
-                        <Link to="/cartcheckout" className="checkout-btn-c">
+                        <Link
+                          to="/cartcheckout"
+                          className="checkout-btn-c"
+                          id="checkout-btn-mb"
+                        >
                           <button>CHECKOUT</button>
                         </Link>
 
@@ -292,13 +302,22 @@ const NavBarTop = () => {
                       </div>
                     )}
                   </summary>
-                  <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 mt-8">
-                    <li>
-                      <Link>Item 1</Link>
-                    </li>
-                    <li>
-                      <Link>Item 2</Link>
-                    </li>
+                  <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-60 mt-8">
+                    <div className="nav-user-info-con">
+                      <img
+                        className="nav-user-photo"
+                        src={user?.photoURL}
+                        alt="not"
+                      />
+                      <p>{user?.displayName}</p>
+                      <p>{user?.email}</p>
+                      <button
+                        className="nav-signout-btn"
+                        onClick={handlesignout}
+                      >
+                        SignOut
+                      </button>
+                    </div>
                   </ul>
                 </details>
                 <NavLink

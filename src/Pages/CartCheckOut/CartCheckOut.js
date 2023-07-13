@@ -3,8 +3,8 @@ import "../CheckOutPages/CheckOutPages.css";
 import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useEffect } from "react";
-// import Services from "./../../Component/Services/Services";
-
+import { useContext } from "react";
+import { AuthContext } from "../../Context/UserContest";
 const CartCheckOut = () => {
   const [firstname, setfirstname] = useState();
   const [lastname, setlastname] = useState();
@@ -15,12 +15,13 @@ const CartCheckOut = () => {
   const [mobile, setmobile] = useState();
   const [message, setmesssage] = useState();
   const [product, setproduct] = useState([]);
+  const { user } = useContext(AuthContext);
   var productinfo = [];
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`)
+    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setproduct(data));
-  });
+  }, [user?.email]);
   var totaldoler = 0;
   product.forEach((prod) => {
     totaldoler =

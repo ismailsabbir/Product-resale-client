@@ -120,7 +120,7 @@ const ServicesDetailsPages = () => {
             <>/</>
             <p>{service}</p>
           </div>
-          <div className="row">
+          <div className="row imge-show">
             <div className="details-left-left col col-12 col-sm-12 col-md-12 col-lg-3">
               <div className="small-imge">
                 <img

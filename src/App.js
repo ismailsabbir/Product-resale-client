@@ -26,6 +26,7 @@ import BuyerRoutes from "./Routes/BuyerRoutes/BuyerRoutes";
 import AllUsers from "./Component/AllUsers/AllUsers";
 import AllProduct from "./Component/AllProduct/AllProduct";
 import AllOrders from "./Component/Allorders/AllOrders";
+import AllCategory from "./Component/AllCategory/AllCategory";
 function App() {
   const router = createBrowserRouter([
     {
@@ -76,19 +77,35 @@ function App() {
         },
         {
           path: "/cart",
-          element: <CartsPages></CartsPages>,
+          element: (
+            <PrivetRoutes>
+              <CartsPages></CartsPages>
+            </PrivetRoutes>
+          ),
         },
         {
           path: "/checkout",
-          element: <CheckOutPages></CheckOutPages>,
+          element: (
+            <PrivetRoutes>
+              <CheckOutPages></CheckOutPages>
+            </PrivetRoutes>
+          ),
         },
         {
           path: "/cartcheckout",
-          element: <CartCheckOut></CartCheckOut>,
+          element: (
+            <PrivetRoutes>
+              <CartCheckOut></CartCheckOut>
+            </PrivetRoutes>
+          ),
         },
         {
           path: "/checkout/:id/:quentity",
-          element: <CheckOutPages></CheckOutPages>,
+          element: (
+            <PrivetRoutes>
+              <CheckOutPages></CheckOutPages>
+            </PrivetRoutes>
+          ),
           loader: async ({ params }) => {
             return fetch(
               `${process.env.REACT_APP_HOST_LINK}/products/${params.id}`
@@ -143,6 +160,10 @@ function App() {
               path: "/dashboard/admin/allorders",
               element: <AllOrders></AllOrders>,
             },
+            {
+              path: "/dashboard/admin/category",
+              element: <AllCategory></AllCategory>,
+            },
 
             {
               path: "/dashboard/sealler",
@@ -166,7 +187,7 @@ function App() {
     },
   ]);
   return (
-    <div>
+    <div className="app-container">
       <RouterProvider router={router} />
     </div>
   );

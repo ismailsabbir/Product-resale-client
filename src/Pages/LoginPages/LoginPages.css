@@ -9,3 +9,9 @@
 .login-btn {
     height: 15px;
 }
+
+@media only screen and (max-width: 687px) {
+    .login-con {
+        width: 100%;
+    }
+}

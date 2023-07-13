@@ -112,3 +112,28 @@
     border: 8px;
     padding: 8px;
 }
+
+@media only screen and (max-width: 687px) {
+    .postadd-container {
+        width: 98%;
+        padding: 2px;
+    }
+
+    .all-input-con {
+        width: 100%;
+        padding: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: none;
+
+    }
+
+    .first-input {
+        width: 100%;
+        /* border: 1px solid brown; */
+        margin: 0;
+        /* padding: 0; */
+    }
+}

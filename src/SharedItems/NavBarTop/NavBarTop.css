@@ -124,11 +124,8 @@
     margin-left: 8px;
 }
 
-
-
 .userinfo-btn:focus {
     border: none;
-
 }
 
 .sidebar-hole-text {
@@ -201,4 +198,64 @@
 
 .p {
     height: 200px;
+}
+
+.nav-user-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    padding: 2px;
+    border: 1px solid gainsboro;
+
+}
+
+.nav-user-info-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nav-user-info-con p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(52, 52, 52);
+}
+
+.nav-signout-btn {
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid gainsboro;
+    padding: 8px 10px;
+    background-color: rgb(88, 88, 241);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 687px) {
+    .drawer-side {
+        margin-top: 270px;
+    }
+
+    .cart-sidebar {
+        width: 310px;
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+    /* .sidebar-hole-text {
+        padding-bottom: 100px;
+    } */
+
+    .checkout-btn-c {
+        margin-top: 10px;
+
+    }
+
+    #checkout-btn-mb {
+        margin-bottom: 100px;
+    }
+
 }

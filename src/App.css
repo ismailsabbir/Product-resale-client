@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 687px) {
+  .app-container {
+    width: 97%;
+    margin: 0 auto;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +39,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

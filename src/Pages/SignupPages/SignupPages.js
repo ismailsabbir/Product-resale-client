@@ -181,14 +181,6 @@ const SignupPages = () => {
               required
             />
           </Form.Group>
-          {/* <Form.Group className="mb-3 name-signup " controlId="formBasicEmail">
-            <Form.Label>Chose saler / Buyer</Form.Label> <br />
-            <select id="saler" name="salerbuyer" form="carform">
-              <option value="Saler">Saler</option>
-              <option value="Buyer">Buyer</option>
-            </select>
-          </Form.Group> */}
-
           <Form.Group className="mb-3 name-signup ">
             <Form.Label>Chose saler / Buyer</Form.Label>
             <Form.Select

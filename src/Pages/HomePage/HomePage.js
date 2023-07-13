@@ -7,7 +7,6 @@ import HomeProducts from "../../Component/HomeProducts/HomeProducts";
 import Architecture from "../../Component/Architecture/Architecture";
 import Suports from "../../Component/Suports/Suports";
 import HomeCategory from "../../Component/HomeCategory/HomeCategory";
-import UseTitle from "../../hook/UseTitle";
 const HomePage = () => {
   const [services, setservices] = useState([]);
   const [allcategory, setallcategory] = useState([]);

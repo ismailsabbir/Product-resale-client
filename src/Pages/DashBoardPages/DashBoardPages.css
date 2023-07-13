@@ -17,3 +17,30 @@
     /* border: 1px solid brown; */
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 687px) {
+    .dashbord-text-con {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    .dashboards-container {
+        width: 95%;
+        padding: 0;
+    }
+
+    .dashboard-left {
+        padding: 0;
+        margin: 0;
+        margin-top: 15px;
+    }
+
+    .dashboard-right {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+}

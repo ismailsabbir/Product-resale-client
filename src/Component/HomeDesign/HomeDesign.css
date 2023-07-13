@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 40px 10px;
-
 }
 
 .homedesign-left {
@@ -56,4 +55,46 @@
 .homedesign-right {
     width: 40%;
     margin-right: 10px;
+}
+
+@media only screen and (max-width: 687px) {
+    .homedesign-container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        width: 96%;
+        margin: 0 auto;
+        margin-bottom: 220px;
+    }
+
+    .homedesign-left {
+        width: 100%;
+        /* border: 10px solid brown; */
+        height: auto;
+        position: relative;
+        display: none;
+    }
+
+    .homedesign-imge1 {
+        border: 1px solid gray;
+        position: absolute;
+    }
+
+    .homedesign-imge2 {
+        border: 1px solid brown;
+        position: absolute;
+    }
+
+    .homedesign-right {
+        width: 100%;
+        /* border: 1px solid green; */
+    }
+
+    .homedesign-right h3 {
+        width: 70%;
+        /* border: 1px solid green; */
+        text-align: center;
+        margin: 0 auto;
+    }
 }

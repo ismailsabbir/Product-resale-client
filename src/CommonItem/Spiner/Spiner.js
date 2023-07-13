@@ -4,15 +4,9 @@ import { Spinner } from "react-bootstrap";
 const Spiner = () => {
   return (
     <div className="spiner-container">
-      <h2>
-        L
-        <span>
-          <Spinner animation="border" variant="primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </span>
-        ading
-      </h2>
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
     </div>
   );
 };

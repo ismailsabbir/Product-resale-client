@@ -1,0 +1,13 @@
+@media only screen and (max-width: 687px) {
+    .order-main-info-con {
+        /* border: 2px solid brown; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .all-order-serv-name {
+        margin-top: 15px;
+        margin-right: 8px;
+    }
+
+}
