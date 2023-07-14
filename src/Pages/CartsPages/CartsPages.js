@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./CartsPages.css";
 import { Table } from "react-bootstrap";
 import { AiOutlineHome } from "react-icons/ai";
@@ -6,13 +6,55 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { ToastContainer } from "react-toastify";
+import { AuthContext } from "../../Context/UserContest";
+import { useQuery } from "react-query";
 const CartsPages = () => {
-  const [product, setproduct] = useState([]);
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_HOST_LINK}/cartproduct`)
-      .then((res) => res.json())
-      .then((data) => setproduct(data));
-  });
+  const { user, userlogout } = useContext(AuthContext);
+  // const [product, setproduct] = useState([]);
+  const userId = user?.uid;
+  const { data: product = [] } = useQuery(
+    {
+      queryKey: ["cartproduct"],
+      queryFn: async () => {
+        const res = await fetch(
+          `${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`,
+          // `http://localhost:5000/cartproduct?email=${user?.email}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem(
+                "reseall_product_token"
+              )}`,
+            },
+          }
+        );
+        console.log(res);
+        // if (res?.status === 401 || res.status === 403) {
+        //   return userlogout();
+        // }
+        const data = res.json();
+        return data;
+      },
+      enabled: !!userId,
+    },
+    [user?.email]
+  );
+
+  // useEffect(() => {
+  //   fetch(
+  //     `${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`,
+  //     {
+  //       headers: {
+  //         authorization: `Bearer ${localStorage.getItem(
+  //           "reseall_product_token"
+  //         )}`,
+  //       },
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setproduct(data));
+
+  // }, [user?.email]);
+
   const handlecartremove = (params) => {
     Swal.fire({
       title: "Do you want to Delete cart product?",

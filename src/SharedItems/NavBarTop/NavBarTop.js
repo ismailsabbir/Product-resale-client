@@ -20,16 +20,30 @@ const NavBarTop = () => {
   const { user, userlogout } = useContext(AuthContext);
   const photo = user?.photoURL;
   var price = 0;
+  const userId = user?.uid;
   const { data: cartproduct = [], refetch } = useQuery(
     {
       queryKey: ["cartproduct"],
       queryFn: async () => {
         const res = await fetch(
-          `${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`
+          `${process.env.REACT_APP_HOST_LINK}/cartproduct?email=${user?.email}`,
+          // `http://localhost:5000/cartproduct?email=${user?.email}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem(
+                "reseall_product_token"
+              )}`,
+            },
+          }
         );
+        console.log(res);
+        // if (res?.status === 401 || res.status === 403) {
+        //   return userlogout();
+        // }
         const data = res.json();
         return data;
       },
+      enabled: !!userId,
     },
     [user?.email]
   );
